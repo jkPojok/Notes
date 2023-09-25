@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  notesapi:
+    image: notesapi
+    build:
+      context: ./Notes/
+      dockerfile: NotesApi/Dockerfile
+    ports:
+     - "5000:80"
+  notesfrontend:
+    image: notesfrontend
+    build:
+      context: ./notes-frontend/
+      dockerfile: Dockerfile
+    ports:
+     - "5101:3000"

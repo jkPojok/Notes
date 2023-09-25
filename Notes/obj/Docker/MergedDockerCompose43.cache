@@ -1,0 +1,31 @@
+name: dockercompose111944600268572887
+services:
+  notesapi:
+    build:
+      context: C:\Projects\NotesProject\Notes
+      dockerfile: NotesApi/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: notesapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 443
+      published: "5000"
+      protocol: tcp
+  notesfrontend:
+    build:
+      context: C:\Projects\NotesProject\Notes\notes-frontend
+      dockerfile: Dockerfile
+    image: notesfrontend
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 3000
+      published: "5001"
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose111944600268572887_default
