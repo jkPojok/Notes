@@ -11,7 +11,7 @@ namespace NotesApi.Controllers
     {
         private readonly ISender _mediatr;
 
-        public NotesController(ISender mediatr) 
+        public NotesController(ISender mediatr, IConfiguration config) 
         {
             _mediatr = mediatr;
         }

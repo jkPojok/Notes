@@ -1,0 +1,23 @@
+.main-menu-container {
+    width: 99.7vw;
+    height: 95vh;
+    display: flexbox;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-menu-header {
+    width: 100%;
+    border-style: solid;
+    border-width: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.main-menu-header-label {
+    margin-top: 2px;
+    margin-bottom: 5px;
+    display: inline;
+}
