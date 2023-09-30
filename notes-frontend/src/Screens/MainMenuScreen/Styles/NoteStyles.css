@@ -1,0 +1,14 @@
+.note-container {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    position: absolute;
+}
+
+.note {
+    background-color: #e4cd86;
+    color: white;
+    height: 600px;
+    width: 470px;
+    margin: 9.5vh auto;
+}

@@ -1,0 +1,21 @@
+.note-preview {
+    background-color: #e4cd86;
+    width: 175px;
+    height: 175px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.note-preview-title {
+    margin-left: 34%;
+    margin-right: 34%;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.note-preview-text {
+    font-weight: 400;
+    font-size: 16px;
+    height: 100%;
+}

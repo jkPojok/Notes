@@ -3,7 +3,7 @@ export default class NotesApi {
     async getNotes() {
         var result;
 
-        await fetch(`http://localhost:5000/api/notes/getnotes`,
+        await fetch(`https://localhost:7278/api/notes/getnotes`,
             {
                 method: 'GET',
                 headers: {
@@ -26,7 +26,7 @@ export default class NotesApi {
     async getNote(id) {
         var result;
 
-        await fetch(`http://localhost:5000/api/notes/getnote/${id}`,
+        await fetch(`https://localhost:7278/api/notes/getnote/${id}`,
             {
                 method: 'GET',
                 headers: {

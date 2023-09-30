@@ -1,28 +1,39 @@
 import NotesApi from "../../api/NotesApi";
+import NotesGrid from "./NotesGrid";
 import "./Styles/MainMenuStyles.css";
+import Note from "./Note"
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function MainMenu() {
 
+    const [noteState, setNoteState] = useState({
+        note: null,
+        isActive: false
+    });
+
+    const [notesState, setNotesState] = useState({
+        notes: []
+    })
+
     const api = new NotesApi();
-    
-    const getNotes = () => {
+
+    useEffect(() => {
         console.log(api.getNotes());
-    }
+        api.getNotes().then((result) => {
+            setNotesState({
+                notes: result
+            })
+        });
+    }, [])
 
-    const getNote = () => {
-        console.log(api.getNote('a22d9bd3-408c-4ac4-913c-1a8d6e6bfb74'));
-    }
-
-    const createNote = () => {
-        console.log(api.createNote({ Title: 'Day 1', Text: 'Today is first day' }));
-    }
-
-    const updateNote = () => {
-        console.log(api.updateNote({ Id: 'a22d9bd3-408c-4ac4-913c-1a8d6e6bfb74', Title: 'Day 2', Text: 'Today is second day' }));
-    }
-
-    const deleteNote = () => {
-        console.log(api.deleteNote('a22d9bd3-408c-4ac4-913c-1a8d6e6bfb74'));
+    const openNote = (id) => {
+        api.getNote(id).then((result) => {
+            setNoteState({
+                note: result,
+                isActive: true
+            })
+        });
     }
 
     return (
@@ -31,13 +42,12 @@ export default function MainMenu() {
                 <h1 className="main-menu-header-label">Notes</h1>
                 <span>Nickname</span>
             </header>
-            <div>
-                <button onClick={() => getNotes()}>Get Notes</button>
-                <button onClick={() => getNote()}>Get Note</button>
-                <button onClick={() => createNote()}>Create Note</button>
-                <button onClick={() => updateNote()}>Update Note</button>
-                <button onClick={() => deleteNote()}>Delete Note</button>
+            <div className="notes-grid-container">
+                <NotesGrid notes={notesState.notes} openNote={openNote} />
             </div>
+            {noteState.note !== null && noteState.isActive === true &&
+                <Note note={noteState.note} />
+            }
         </div>
     );
 }
