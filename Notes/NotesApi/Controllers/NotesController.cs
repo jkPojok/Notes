@@ -35,13 +35,13 @@ namespace NotesApi.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> UpdateNote([FromBody] UpdateNoteCommand command, CancellationToken cancellationToken)
+        public async Task<ActionResult<NoteDto>> UpdateNote([FromBody] UpdateNoteCommand command, CancellationToken cancellationToken)
         {
             return Ok(await _mediatr.Send(command, cancellationToken));
         }
 
         [HttpDelete("{noteId}")]
-        public async Task<ActionResult> DeleteNote(Guid noteId, CancellationToken cancellationToken)
+        public async Task<ActionResult<NoteDto>> DeleteNote(Guid noteId, CancellationToken cancellationToken)
         {
             return Ok(await _mediatr.Send(new DeleteNoteCommand { Id = noteId }, cancellationToken));
         }

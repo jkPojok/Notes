@@ -1,14 +1,68 @@
-.note-container {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.55);
-    position: absolute;
-}
-
 .note {
     background-color: #e4cd86;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    row-gap: 10px;
     color: white;
     height: 600px;
     width: 470px;
     margin: 9.5vh auto;
+    padding: 10px 15px 10px 10px;
+}
+
+.note-header {
+    height: 5%;
+}
+
+.note-body {
+    height: 88%;
+}
+
+.note-footer {
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-title {
+    font-size: 23px;
+    font-weight: 700;
+    width: 99.7%;
+    border-style: none;
+    background-color: #d8c07a;
+    color: white;
+    text-align: center;
+}
+
+.note-text {
+    font-size: 19px;
+    resize: none;
+    border-style: none;
+    background-color: #d8c07a;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.note-data {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.save-button {
+    background-color: #ffe8a5;
+    width: 61%;
+}
+
+.delete-button {
+    background-color: red;
+    width: 39%;
+}
+
+.buttons-container {
+    width: 37%;
+    display: flex;
+    flex-direction: row;
 }

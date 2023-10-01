@@ -33,3 +33,18 @@
     display: flex;
     justify-content: center;
 }
+
+.note-container {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    position: absolute;
+}
+
+.note-add-icon {
+    position: fixed;
+    left: 68%;
+    bottom: 5%;
+    color: white;
+    font-size: 60px;
+}

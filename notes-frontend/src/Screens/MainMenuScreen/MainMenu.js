@@ -27,6 +27,22 @@ export default function MainMenu() {
         });
     }, [])
 
+    async function createBlankNote() {
+        await api.createNote({
+            title: "Введите название",
+            text: "Введите текст"
+        });
+        window.location.reload();
+    }
+    
+    const updateNote = (note) => {
+        api.updateNote(note);
+    }
+
+    const deleteNote = (id) => {
+        api.deleteNote(id);
+    }
+
     const openNote = (id) => {
         api.getNote(id).then((result) => {
             setNoteState({
@@ -36,17 +52,30 @@ export default function MainMenu() {
         });
     }
 
+    const closeNote = () => {
+        setNoteState({
+            note: noteState.note,
+            isActive: false
+        });
+    }
+
     return (
-        <div className="main-menu-container">
+        <div className="main-menu-container" onClick={closeNote}>
             <header className="main-menu-header">
                 <h1 className="main-menu-header-label">Notes</h1>
-                <span>Nickname</span>
+                <div>
+                    <button>Login</button>
+                    <button>Register</button>
+                </div>
             </header>
             <div className="notes-grid-container">
                 <NotesGrid notes={notesState.notes} openNote={openNote} />
+                <i className="bi bi-plus-circle-fill note-add-icon" onClick={createBlankNote}></i>
             </div>
             {noteState.note !== null && noteState.isActive === true &&
-                <Note note={noteState.note} />
+            <div className="note-container">
+                <Note note={noteState.note} updateNote={updateNote} deleteNote={deleteNote} />
+            </div>
             }
         </div>
     );

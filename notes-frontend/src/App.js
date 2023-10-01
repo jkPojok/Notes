@@ -2,7 +2,7 @@ import MainMenu from "./Screens/MainMenuScreen/MainMenu";
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <MainMenu />
     </div>
   );
