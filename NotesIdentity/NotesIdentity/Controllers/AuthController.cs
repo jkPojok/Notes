@@ -28,7 +28,7 @@ namespace NotesIdentity.Controllers
         {
             var viewModel = new RegisterViewModel
             {
-                ReturnUrl = returnUrl
+                ReturnUrl = returnUrl 
             };
 
             return View(viewModel);
@@ -48,12 +48,16 @@ namespace NotesIdentity.Controllers
                 Email = viewModel.Email
             };
 
-            var result = await _userManager.CreateAsync(user);
+            var result = await _userManager.CreateAsync(user, viewModel.Password!);
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);
 
-                return Redirect(viewModel.ReturnUrl!);
+                if (string.IsNullOrEmpty(viewModel.ReturnUrl))
+                {
+                    return Redirect("/");
+                }
+                return Redirect(viewModel.ReturnUrl);
             }
 
             return View(viewModel);
@@ -87,7 +91,11 @@ namespace NotesIdentity.Controllers
             var result = await _signInManager.PasswordSignInAsync(viewModel.Username!, viewModel.Password!, false, false);
             if (result.Succeeded)
             {
-                return Redirect(viewModel.ReturnUrl!);
+                if (string.IsNullOrEmpty(viewModel.ReturnUrl))
+                {
+                    return Redirect("/");
+                }
+                return Redirect(viewModel.ReturnUrl);
             }
 
             return View(viewModel);

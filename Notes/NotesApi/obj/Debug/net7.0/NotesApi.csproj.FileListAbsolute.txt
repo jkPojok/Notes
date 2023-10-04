@@ -84,3 +84,4 @@ C:\Projects\NotesProject\Notes\NotesApi\obj\Debug\net7.0\refint\NotesApi.dll
 C:\Projects\NotesProject\Notes\NotesApi\obj\Debug\net7.0\NotesApi.pdb
 C:\Projects\NotesProject\Notes\NotesApi\obj\Debug\net7.0\NotesApi.genruntimeconfig.cache
 C:\Projects\NotesProject\Notes\NotesApi\obj\Debug\net7.0\ref\NotesApi.dll
+C:\Projects\NotesProject\Notes\NotesApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

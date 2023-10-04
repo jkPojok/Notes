@@ -4,6 +4,7 @@ import "./Styles/MainMenuStyles.css";
 import Note from "./Note"
 import { useState } from "react";
 import { useEffect } from "react";
+import { signInRedirect, signOutRedirect } from "../../auth/AuthService";
 
 export default function MainMenu() {
 
@@ -19,7 +20,6 @@ export default function MainMenu() {
     const api = new NotesApi();
 
     useEffect(() => {
-        console.log(api.getNotes());
         api.getNotes().then((result) => {
             setNotesState({
                 notes: result
@@ -34,7 +34,7 @@ export default function MainMenu() {
         });
         window.location.reload();
     }
-    
+
     const updateNote = (note) => {
         api.updateNote(note);
     }
@@ -64,8 +64,8 @@ export default function MainMenu() {
             <header className="main-menu-header">
                 <h1 className="main-menu-header-label">Notes</h1>
                 <div>
-                    <button>Login</button>
-                    <button>Register</button>
+                    <button onClick={() => signInRedirect()}>Login</button>
+                    <button onClick={() => signOutRedirect()}>Logout</button>
                 </div>
             </header>
             <div className="notes-grid-container">
@@ -73,9 +73,9 @@ export default function MainMenu() {
                 <i className="bi bi-plus-circle-fill note-add-icon" onClick={createBlankNote}></i>
             </div>
             {noteState.note !== null && noteState.isActive === true &&
-            <div className="note-container">
-                <Note note={noteState.note} updateNote={updateNote} deleteNote={deleteNote} />
-            </div>
+                <div className="note-container">
+                    <Note note={noteState.note} updateNote={updateNote} deleteNote={deleteNote} />
+                </div>
             }
         </div>
     );

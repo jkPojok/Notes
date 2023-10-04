@@ -24,15 +24,15 @@ namespace NotesIdentity
                     },
                     RedirectUris =
                     {
-
+                        "http://localhost:3000/signin"
                     },
                     PostLogoutRedirectUris =
                     {
-
+                        "http://localhost:3000/signout"
                     },
                     AllowedCorsOrigins =
                     {
-                        "http://localhost:5101"
+                        "http://localhost:3000"
                     },
                     AllowAccessTokensViaBrowser = true
                 }
