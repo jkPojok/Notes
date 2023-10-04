@@ -1,21 +1,23 @@
 ﻿@model LoginViewModel
 
+<link href="@Url.Content("~/views/styles/authstyles.css")" rel="stylesheet" type="text/css" />
+
 <body>
-    <div>
+    <div class="auth-container">
         <h2>Authorization</h2>
         <form asp-controller="Auth" asp-action="Login" method="post">
             <input type="hidden" asp-for="ReturnUrl" />
             <div>
-                <input asp-for="Username" placeholder="Username" />
+                <input asp-for="Username" class="auth-input" placeholder="Username or Email" />
             </div>
             <div>
-                <input asp-for="Password" placeholder="Password" />
+                <input asp-for="Password" class="auth-input" placeholder="Password" />
             </div>
             <div>
-                <input type="submit" value="Login" />
+                <input class="auth-submit-input" type="submit" value="Login" />
             </div>
 
-            <a asp-controller="Auth" asp-action="Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a>
+            <a class="auth-redirect-a" asp-controller="Auth" asp-action="Register" asp-route-returnUrl="@Model.ReturnUrl">Register</a>
         </form>
     </div>
 </body>

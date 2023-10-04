@@ -1,10 +1,23 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using NotesIdentity;
 using NotesIdentity.Data;
 using NotesIdentity.Entities;
+using System.Net.NetworkInformation;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(config =>
+{
+    config.AddPolicy("AllowServices", builder =>
+    {
+        builder
+        .WithOrigins("http://localhost:3000", "https://localhost:7278")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
 builder.Services.AddDbContext<AuthDbContext>(options =>
@@ -12,7 +25,7 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
     options.UseSqlServer(connectionString);
 });
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(config =>
 {
@@ -34,16 +47,22 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddIdentityServer()
     .AddAspNetIdentity<AppUser>()
+    .AddInMemoryClients(IdentityServerConfiguration.AddClients())
+    .AddInMemoryApiScopes(IdentityServerConfiguration.AddScopes())
     .AddInMemoryApiResources(IdentityServerConfiguration.AddApiResources())
     .AddInMemoryIdentityResources(IdentityServerConfiguration.AddIdentityResources())
-    .AddInMemoryApiScopes(IdentityServerConfiguration.AddScopes())
-    .AddInMemoryClients(IdentityServerConfiguration.AddClients())
     .AddDeveloperSigningCredential();
 
 var app = builder.Build();
 
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(app.Environment.ContentRootPath, "Views/Styles")),
+    RequestPath = "/views/styles"
+});
+
 app.UseRouting();
-app.UseHttpsRedirection();
+app.UseCors("AllowServices");
 app.UseIdentityServer();
 app.MapControllers();
 

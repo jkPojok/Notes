@@ -12,7 +12,7 @@ build_property.RootNamespace = NotesIdentity
 build_property.ProjectDir = C:\Projects\NotesProject\NotesIdentity\NotesIdentity\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Projects\NotesProject\NotesIdentity\NotesIdentity
 build_property._RazorSourceGeneratorDebug = 
 

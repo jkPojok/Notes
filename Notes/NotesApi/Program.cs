@@ -8,10 +8,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowServices", builder =>
     builder
-    .WithOrigins("http://localhost:3000")
-    .WithOrigins("http://localhost:5101")
+    .WithOrigins("http://localhost:3000", "http://localhost:5101", "https://localhost:7280")
     .AllowAnyHeader()
-    .AllowAnyMethod());
+    .AllowAnyMethod()
+    );
 });
 
 builder.Services.AddAuthentication(options =>
@@ -33,12 +33,12 @@ builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
 
+app.UseRouting();
 app.UseCors("AllowServices");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseRouting();
 app.MapControllers();
 
 app.Run();

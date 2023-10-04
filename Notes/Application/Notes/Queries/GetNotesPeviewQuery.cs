@@ -8,7 +8,7 @@ namespace Application.Notes.Queries
 {
     public class GetNotesPeviewQuery : IRequest<List<NotePreviewDto>>
     {
-        
+        public Guid UserId { get; set; }
     }
 
     public class GetNotesPreviewQueryHandler : IRequestHandler<GetNotesPeviewQuery, List<NotePreviewDto>>
@@ -24,7 +24,7 @@ namespace Application.Notes.Queries
 
         public async Task<List<NotePreviewDto>> Handle(GetNotesPeviewQuery request, CancellationToken cancellationToken)
         {
-            var notes = await _dbContext.Notes.ToListAsync();
+            var notes = await _dbContext.Notes.Where(x => x.UserId == request.UserId).ToListAsync();
             return _mapper.Map<List<NotePreviewDto>>(notes);
         }
     }

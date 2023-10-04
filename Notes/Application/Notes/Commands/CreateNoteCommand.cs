@@ -8,6 +8,7 @@ namespace Application.Notes.Commands
 {
     public class CreateNoteCommand : IRequest<NoteDto>
     {
+        public Guid UserId { get; set; }
         public string? Title { get; set; }
         public string Text { get; set; } = string.Empty;
     }
@@ -28,6 +29,7 @@ namespace Application.Notes.Commands
             var note = new Note
             {
                 Id = Guid.NewGuid(),
+                UserId = request.UserId,
                 Title = request.Title,
                 Text = request.Text,
                 DateOfCreation = DateTime.UtcNow,

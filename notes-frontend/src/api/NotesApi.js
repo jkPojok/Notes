@@ -7,7 +7,8 @@ export default class NotesApi {
             {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
                 }
             })
             .then(response => {
@@ -30,7 +31,8 @@ export default class NotesApi {
             {
                 method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
                 }
             })
             .then(response => {
@@ -53,7 +55,8 @@ export default class NotesApi {
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
                 },
                 body: JSON.stringify(note)
             })
@@ -77,7 +80,8 @@ export default class NotesApi {
             {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
                 },
                 body: JSON.stringify(note)
             })
@@ -101,7 +105,8 @@ export default class NotesApi {
             {
                 method: 'DELETE',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
                 }
             })
             .then(response => {

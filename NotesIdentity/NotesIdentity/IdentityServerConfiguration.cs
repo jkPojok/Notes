@@ -1,6 +1,5 @@
 ﻿using IdentityServer4;
 using IdentityServer4.Models;
-using System.Collections;
 
 namespace NotesIdentity
 {
@@ -47,7 +46,7 @@ namespace NotesIdentity
         public static IEnumerable<ApiResource> AddApiResources() =>
             new List<ApiResource>
             {
-                new ApiResource("NotesAppApiResources") { Scopes = { "BookReaderUserApi" } }
+                new ApiResource("NotesAppApiResources") { Scopes = { "NotesApp" } }
             };
 
         public static IEnumerable<IdentityResource> AddIdentityResources() =>

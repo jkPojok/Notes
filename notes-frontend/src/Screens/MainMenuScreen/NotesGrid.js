@@ -10,7 +10,7 @@ export default function NotesGrid(props) {
     return (
         <div className="notes-grid-black-container">
             <div className="notes-grid">
-                {props.notes.length > 0 &&
+                {Array.isArray(props.notes) && props.notes.length > 0 &&
                     props.notes.map(note => (
                         <PreviewNote note={note} key={note.id} onOpenNote={openNote} />
                     ))}
