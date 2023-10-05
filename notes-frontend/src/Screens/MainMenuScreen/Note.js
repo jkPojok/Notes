@@ -1,22 +1,22 @@
+import { useState } from "react";
 import "./Styles/NoteStyles.css"
 
 export default function Note(props) {
 
-  const submitForm = (e) => {
+  const submitForm = async (e) => {
 
     e.preventDefault();
 
-    props.updateNote({
+    await props.updateNote({
       id: props.note.id,
       title: e.target.elements["note-title"].value,
       text: e.target.elements["note-text"].value
     });
-
     window.location.reload();
   }
 
-  const deleteNote = () => {
-    props.deleteNote(props.note.id);
+  const deleteNote = async () => {
+    await props.deleteNote(props.note.id);
     window.location.reload();
   }
 

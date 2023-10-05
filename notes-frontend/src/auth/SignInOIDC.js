@@ -10,6 +10,7 @@ export default function SignInOIDC() {
         async function signInAsync() {
             await signInRedirectCallback();
             navigate("/");
+            window.location.reload();
         }
 
         signInAsync();

@@ -21,16 +21,14 @@ export async function loadUser() {
     console.log(user);
     const token = user?.access_token;
     localStorage.setItem("token", token ? token : "");
-
-    return user;
 }
 
 export const signInRedirect = () => {
     userManager.signinRedirect();
 }
 
-export const signInRedirectCallback = () => {
-    userManager.signinRedirectCallback();
+export const signInRedirectCallback = async () => {
+    await userManager.signinRedirectCallback();
 }
 
 export const signOutRedirect = async () => {

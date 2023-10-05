@@ -88,7 +88,7 @@ namespace NotesIdentity.Controllers
                 return View(viewModel);
             }
 
-            var result = await _signInManager.PasswordSignInAsync(viewModel.Username!, viewModel.Password!, false, false);
+            var result = await _signInManager.PasswordSignInAsync(user, viewModel.Password!, false, false);
             if (result.Succeeded)
             {
                 if (string.IsNullOrEmpty(viewModel.ReturnUrl))

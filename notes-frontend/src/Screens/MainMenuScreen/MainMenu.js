@@ -35,12 +35,12 @@ export default function MainMenu() {
         window.location.reload();
     }
 
-    const updateNote = (note) => {
-        api.updateNote(note);
+    const updateNote = async (note) => {
+        await api.updateNote(note);
     }
 
-    const deleteNote = (id) => {
-        api.deleteNote(id);
+    const deleteNote = async (id) => {
+        await api.deleteNote(id);
     }
 
     const openNote = (id) => {
