@@ -1,6 +1,8 @@
 ﻿using IdentityServer4.Services;
+using MassTransit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NotesContracts;
 using NotesIdentity.Entities;
 using NotesIdentity.Models;
 
@@ -13,14 +15,18 @@ namespace NotesIdentity.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly IIdentityServerInteractionService _interactionService;
 
+        private readonly IPublishEndpoint _publishEndpoint;
+
         public AuthController(
             SignInManager<AppUser> signInManager,
             UserManager<AppUser> userManager,
-            IIdentityServerInteractionService interactionService)
+            IIdentityServerInteractionService interactionService,
+            IPublishEndpoint publishEndpoint)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _interactionService = interactionService;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet]
@@ -52,6 +58,8 @@ namespace NotesIdentity.Controllers
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, false);
+
+                await _publishEndpoint.Publish(new UserCreated { Id = Guid.Parse(user.Id), Email = user.Email, Username = user.UserName });
 
                 if (string.IsNullOrEmpty(viewModel.ReturnUrl))
                 {

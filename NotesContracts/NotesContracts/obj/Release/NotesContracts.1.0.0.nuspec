@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>NotesContracts</id>
+    <version>1.0.0</version>
+    <authors>NotesContracts</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net7.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\NugetPackages\Release\net7.0\NotesContracts.dll" target="lib\net7.0\NotesContracts.dll" />
+  </files>
+</package>

@@ -408,3 +408,11 @@ C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\tr\Microso
 C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Projects\NotesProject\NotesIdentity\NotesIdentity\obj\Debug\net7.0\NotesIdentity.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\MassTransit.dll
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\MassTransit.Abstractions.dll
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\MassTransit.RabbitMqTransport.dll
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\NotesContracts.dll
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\RabbitMQ.Client.dll

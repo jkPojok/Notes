@@ -6,6 +6,7 @@ namespace Domain.Entities
     {
         public Guid Id { get; set; }
         public string? Username { get; set; }
+        public string? Email { get; set; }
         public Gender? Gender { get; set; }
         public string? UserImageLink { get; set; }
         public DateTime RegistrationDate { get; set; }

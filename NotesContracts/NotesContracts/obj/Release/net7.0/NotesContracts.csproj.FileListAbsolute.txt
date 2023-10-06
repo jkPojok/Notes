@@ -1,0 +1,11 @@
+C:\NugetPackages\Release\net7.0\NotesContracts.deps.json
+C:\NugetPackages\Release\net7.0\NotesContracts.dll
+C:\NugetPackages\Release\net7.0\NotesContracts.pdb
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\NotesContracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\NotesContracts.AssemblyInfoInputs.cache
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\NotesContracts.AssemblyInfo.cs
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\NotesContracts.csproj.CoreCompileInputs.cache
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\NotesContracts.dll
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\refint\NotesContracts.dll
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\NotesContracts.pdb
+C:\Projects\NotesProject\NotesContracts\NotesContracts\obj\Release\net7.0\ref\NotesContracts.dll

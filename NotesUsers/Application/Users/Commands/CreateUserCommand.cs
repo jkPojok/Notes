@@ -11,6 +11,7 @@ namespace Application.Users.Commands
     {
         public Guid Id { get; set; }
         public string? Username { get; set; }
+        public string? Email { get; set; }
     }
 
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, UserDto>
@@ -30,6 +31,7 @@ namespace Application.Users.Commands
             {
                 Id = request.Id,
                 Username = request.Username,
+                Email = request.Email,
                 RegistrationDate = DateTime.UtcNow,
                 Gender = Gender.NotSpecified
             };

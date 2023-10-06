@@ -1,3 +1,4 @@
+using MassTransit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
@@ -16,6 +17,19 @@ builder.Services.AddCors(config =>
         .WithOrigins("http://localhost:3000", "https://localhost:7278")
         .AllowAnyHeader()
         .AllowAnyMethod();
+    });
+});
+
+builder.Services.AddMassTransit(massTransitConfig =>
+{
+    massTransitConfig.UsingRabbitMq((context, rabbitConfig) =>
+    {
+        rabbitConfig.Host("localhost", "/", config =>
+        {
+            config.Username("guest");
+            config.Password("guest");
+        });
+        rabbitConfig.ConfigureEndpoints(context);
     });
 });
 
