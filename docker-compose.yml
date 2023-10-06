@@ -22,6 +22,13 @@ services:
       dockerfile: NotesIdentity/Dockerfile
     ports:
      - "5102:80"
+  notesusers:
+    image: notesusers
+    build:
+      context: ./NotesUsers/
+      dockerfile: NotesUsersApi/Dockerfile
+    ports:
+     - "5103:80"
   notesdb:
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
@@ -29,3 +36,7 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "1433:1433"
+  notesrabbit:
+    image: rabbitmq:3.9.29-management
+    ports:
+      - "15672:15672" 

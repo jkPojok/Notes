@@ -17,7 +17,7 @@ namespace NotesApi.Controllers
             ? Guid.Empty 
             : Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-        public NotesController(ISender mediatr, IConfiguration config) 
+        public NotesController(ISender mediatr) 
         {
             _mediatr = mediatr;
         }
