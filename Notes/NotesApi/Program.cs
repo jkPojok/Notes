@@ -19,7 +19,7 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-    .AddJwtBearer("Bearer", config => 
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config => 
     {
         config.Authority = "https://localhost:7280/";
         config.Audience = "NotesAppApiResources";

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Styles/NoteStyles.css"
 
 export default function Note(props) {

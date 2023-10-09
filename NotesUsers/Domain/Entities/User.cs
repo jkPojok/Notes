@@ -8,7 +8,8 @@ namespace Domain.Entities
         public string? Username { get; set; }
         public string? Email { get; set; }
         public Gender? Gender { get; set; }
-        public string? UserImageLink { get; set; }
+        public string? AboutMe { get; set; }
+        public string UserImageLink { get; set; } = "https://notes_users_image.hb.ru-msk.vkcs.cloud/DefaultImage.webp";
         public DateTime RegistrationDate { get; set; }
     }
 }

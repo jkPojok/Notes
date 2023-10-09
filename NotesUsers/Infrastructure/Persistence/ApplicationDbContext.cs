@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence
@@ -11,6 +12,11 @@ namespace Infrastructure.Persistence
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

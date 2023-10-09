@@ -1,0 +1,53 @@
+.profile-sheet {
+    background-image: linear-gradient(-90deg, #FC5C7D, #6A82FB);
+    background-image: -webkit-linear-gradient(-90deg, #FC5C7D, #6A82FB);
+    background-image: -moz-linear-gradient(-90deg, #FC5C7D, #6A82FB);
+    background-image: -o-linear-gradient(-90deg, #FC5C7D, #6A82FB);
+    color: white;
+    width: 500px;
+    height: 660px;
+    display: flex;
+    flex-direction: column;
+    margin: 5.3vh auto;
+    row-gap: 30px;
+    padding: 15px 15px 10px 15px;
+}
+
+.profile-preview-container {
+    width: 100%;
+    display: flex;
+    column-gap: 15px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profile-options-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px 30px 15px 30px;
+}
+
+.profile-icon {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+}
+
+.profile-about-me-text {
+    width: 100%;
+    height: 115px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.profile-delete-button {
+    background-color: rgb(250, 66, 66);
+    color: white;
+}
+
+.profile-options-container button {
+    border-radius: 5px;
+}

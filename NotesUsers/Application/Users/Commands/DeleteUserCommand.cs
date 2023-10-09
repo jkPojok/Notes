@@ -33,7 +33,7 @@ namespace Application.Users.Commands
             }
 
             _dbContext.Users.Remove(user);
-            await   _dbContext.SaveChangesAsync(cancellationToken);
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return _mapper.Map<UserDto>(user);
         }

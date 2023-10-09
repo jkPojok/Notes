@@ -6,7 +6,7 @@
         public Guid UserId { get; set; }
         public string? Title { get; set; }
         public string Text { get; set; } = string.Empty;
-        public DateTime DateOfCreation { get; set; }
-        public DateTime DateOfEditing { get; set; }
+        public string? DateOfCreation { get; set; }
+        public string? DateOfEditing { get; set; }
     }
 }

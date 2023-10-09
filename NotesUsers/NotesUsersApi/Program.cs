@@ -1,6 +1,7 @@
 using Application;
 using Infrastructure;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,18 @@ builder.Services.AddCors(options =>
     .AllowAnyMethod()
     );
 });
+
+builder.Services.AddAuthentication(config =>
+{
+    config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config =>
+    {
+        config.Authority = "https://localhost:7280/";
+        config.Audience = "NotesAppApiResources";
+        config.RequireHttpsMetadata = false;
+    });
 
 builder.Services.AddMassTransit(massTransitConfig =>
 {
@@ -39,6 +52,8 @@ var app = builder.Build();
 
 app.UseRouting();
 app.UseCors("AllowServices");
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();

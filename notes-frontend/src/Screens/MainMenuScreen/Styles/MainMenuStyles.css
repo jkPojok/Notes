@@ -48,3 +48,16 @@
     color: white;
     font-size: 60px;
 }
+
+.profile-sheet-container {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    position: absolute;
+}
+
+.profile-image {
+    height: 40px;
+    width: 40px;
+    border-style: solid;
+}

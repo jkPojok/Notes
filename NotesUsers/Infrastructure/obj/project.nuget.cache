@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "NygAabFq1gJ2XdnAN2zMnS+OnQyG+oGUHJo1PT9hF9T/tIaa82v6cJITJbI0ScWniGnIFGNfcTqEWoNQ5uVwGw==",
+  "dgSpecHash": "yl4zvUVffjDHHrB4Md7uwBUDJygiQCnZ4AGg7Dog56FwgPbKWn6By3A+U2VLiuMS5U5ALKIyUCrJzRPVyOHdtQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\NotesProject\\NotesUsers\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Pojok\\.nuget\\packages\\awssdk.core\\3.7.204\\awssdk.core.3.7.204.nupkg.sha512",
+    "C:\\Users\\Pojok\\.nuget\\packages\\awssdk.s3\\3.7.205.9\\awssdk.s3.3.7.205.9.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -12,6 +14,7 @@
     "C:\\Users\\Pojok\\.nuget\\packages\\mapster.dependencyinjection\\1.0.1\\mapster.dependencyinjection.1.0.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
@@ -52,6 +55,7 @@
     "C:\\Users\\Pojok\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.24.0\\system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512",
+    "C:\\Users\\Pojok\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

@@ -18,6 +18,15 @@ const userManager = new UserManager(userManagerSettings);
 
 export async function loadUser() {
     const user = await userManager.getUser();
+
+    userManager.events.addAccessTokenExpired(function() {
+        signInRedirect();
+    });
+    
+    if (user !== null) {
+        console.log(user.expires_in);
+    }
+
     console.log(user);
     const token = user?.access_token;
     localStorage.setItem("token", token ? token : "");
@@ -35,7 +44,7 @@ export const signOutRedirect = async () => {
     const userIdToken = (await userManager.getUser()).id_token;
     userManager.clearStaleState();
     userManager.removeUser();
-    return userManager.signoutRedirect({id_token_hint: userIdToken});
+    return userManager.signoutRedirect({ id_token_hint: userIdToken });
 }
 
 export const signOutRedirectCallback = () => {

@@ -32,7 +32,7 @@ namespace Application.Users.Commands
                 Id = request.Id,
                 Username = request.Username,
                 Email = request.Email,
-                RegistrationDate = DateTime.UtcNow,
+                RegistrationDate = DateTime.Now,
                 Gender = Gender.NotSpecified
             };
 

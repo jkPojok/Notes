@@ -32,8 +32,8 @@ namespace Application.Notes.Commands
                 UserId = request.UserId,
                 Title = request.Title,
                 Text = request.Text,
-                DateOfCreation = DateTime.UtcNow,
-                DateOfEditing = DateTime.UtcNow
+                DateOfCreation = DateTime.Now,
+                DateOfEditing = DateTime.Now
             };
 
             await _dbContext.Notes.AddAsync(note);

@@ -33,7 +33,8 @@ namespace NotesIdentity
                     {
                         "http://localhost:3000"
                     },
-                    AllowAccessTokensViaBrowser = true
+                    AllowAccessTokensViaBrowser = true,
+                    AccessTokenLifetime = 3600
                 }
             };
 

@@ -5,7 +5,6 @@ using Microsoft.Extensions.FileProviders;
 using NotesIdentity;
 using NotesIdentity.Data;
 using NotesIdentity.Entities;
-using System.Net.NetworkInformation;
 
 var builder = WebApplication.CreateBuilder(args);
 

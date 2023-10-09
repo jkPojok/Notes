@@ -37,7 +37,7 @@ namespace Application.Notes.Commands
 
             note.Title = request.Title;
             note.Text = request.Text;
-            note.DateOfEditing = DateTime.UtcNow;
+            note.DateOfEditing = DateTime.Now;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
