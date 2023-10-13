@@ -1,10 +1,13 @@
-﻿using IdentityServer4.Services;
+﻿using IdentityServer4.Extensions;
+using IdentityServer4.Services;
 using MassTransit;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NotesContracts;
 using NotesIdentity.Entities;
 using NotesIdentity.Models;
+using System.Security.Claims;
 
 namespace NotesIdentity.Controllers
 {
@@ -115,6 +118,29 @@ namespace NotesIdentity.Controllers
             await _signInManager.SignOutAsync();
             var logoutRequest = await _interactionService.GetLogoutContextAsync(logoutId);
             return Redirect(logoutRequest.PostLogoutRedirectUri);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> PasswordChanging()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PasswordChanging(PasswordChangingViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == User.GetSubjectId());
+            var result = await _userManager.ChangePasswordAsync(user, viewModel.CurrentPassword!, viewModel.NewPassword!);
+            if (result.Succeeded)
+            {
+                return Redirect("http://localhost:3000");
+            }
+
+            return View(viewModel);
         }
     }
 }

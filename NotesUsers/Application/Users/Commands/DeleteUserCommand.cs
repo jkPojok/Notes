@@ -3,8 +3,11 @@ using Application.Exceptions;
 using Application.Interfaces;
 using Domain.Entities;
 using MapsterMapper;
+using MassTransit;
+using MassTransit.Transports;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using NotesContracts;
 
 namespace Application.Users.Commands
 {
@@ -17,11 +20,13 @@ namespace Application.Users.Commands
     {
         private readonly IApplicationDbContext _dbContext;
         private readonly IMapper _mapper;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public DeleteUserCommandHandler(IApplicationDbContext dbContext, IMapper mapper)
+        public DeleteUserCommandHandler(IApplicationDbContext dbContext, IMapper mapper, IPublishEndpoint publishEndpoint)
         {
             _dbContext = dbContext;
             _mapper = mapper;
+            _publishEndpoint = publishEndpoint;
         }
 
         public async Task<UserDto> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
@@ -31,6 +36,8 @@ namespace Application.Users.Commands
             {
                 throw new NotFoundException(nameof(User), request.Id);
             }
+
+            await _publishEndpoint.Publish(new UserDeleted { Id = user.Id }, cancellationToken);
 
             _dbContext.Users.Remove(user);
             await _dbContext.SaveChangesAsync(cancellationToken);

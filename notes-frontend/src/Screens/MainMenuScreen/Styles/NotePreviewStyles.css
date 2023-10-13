@@ -4,11 +4,12 @@
     height: 195px;
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    row-gap: 8px;
+    padding: 5px 7px 5px 7px;
 }
 
 .note-preview-title {
-    margin-left: 8px;
+    margin-left: 5px;
     margin-right: 2%;
     font-weight: 700;
     font-size: 18px;
@@ -21,4 +22,6 @@
     font-weight: 400;
     font-size: 16px;
     height: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

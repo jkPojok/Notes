@@ -1,10 +1,21 @@
+import { useRef } from "react";
+import { changePassword } from "../../auth/AuthService";
 import "./Styles/ProfileSheetStyles.css";
 
 export default function ProfileSheet(props) {
 
+    const aboutMeRef = useRef();
+
     const setUserImage = (e) => {
-        console.log(e.target.files[0]);
         props.setUserImage(e.target.files[0]);
+    }
+
+    const updateAboutMe = () => {
+        props.updateAboutMe(aboutMeRef.current.value);
+    }
+
+    const deleteUser = () => {
+        props.deleteUser();
     }
 
     return (
@@ -20,8 +31,8 @@ export default function ProfileSheet(props) {
             <div className="profile-options-container">
                 <div className="d-flex flex-column align-items-center">
                     <span>About me</span>
-                    <textarea className="profile-about-me-text" placeholder="Write something about yourself" />
-                    <button>Save</button>
+                    <textarea ref={aboutMeRef} defaultValue={props.user.aboutMe} className="profile-about-me-text" placeholder="Write something about yourself" />
+                    <button onClick={() => updateAboutMe()}>Save</button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <span>Profile image</span>
@@ -29,11 +40,11 @@ export default function ProfileSheet(props) {
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <span>Password</span>
-                    <button>Change password</button>
+                    <button onClick={() => changePassword()}>Change password</button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
                     <span>Account</span>
-                    <button className="profile-delete-button">Delete account</button>
+                    <button className="profile-delete-button" onClick={() => deleteUser()} >Delete account</button>
                 </div>
             </div>
             <span>Registration date: {props.user.registrationDate}</span>

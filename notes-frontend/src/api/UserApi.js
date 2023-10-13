@@ -19,8 +19,17 @@ export default class UserApi {
                 (error) => {
                     console.error(error);
                 });
-                
+
         return result;
+    }
+
+    async deleteUser() {
+        await fetch(`https://localhost:7003/user/deleteuser`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        });
     }
 
     async setUserImage(image) {
@@ -35,5 +44,41 @@ export default class UserApi {
             },
             body: formData
         });
+    }
+
+    async getUserImage() {
+        var result;
+
+        await fetch(`https://localhost:7003/user/getuserimage`, {
+            method: 'GET',
+            headers: {
+                Accept: 'text/plain',
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        })
+            .then(response => {
+                return response.text();
+            })
+            .then((requestResult) => {
+                result = requestResult;
+            },
+                (error) => {
+                    console.log(error);
+                });
+                
+        return result;
+    }
+
+    async updateAboutMe(aboutMeText) {
+
+        await fetch(`https://localhost:7003/user/updateaboutme?` + new URLSearchParams({
+            aboutMeText: aboutMeText
+        }),
+            {
+                method: 'PUT',
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
+            });
     }
 }

@@ -31,14 +31,14 @@ builder.Services.AddMassTransit(massTransitConfig =>
 {
     var assembly = typeof(Program).Assembly;
     massTransitConfig.AddConsumers(assembly);
-    massTransitConfig.UsingRabbitMq((context, RabbitConfig) =>
+    massTransitConfig.UsingRabbitMq((context, rabbitConfig) =>
     {
-        RabbitConfig.Host("localhost", "/", config =>
+        rabbitConfig.Host("localhost", "/", config =>
         {
             config.Username("guest");
             config.Password("guest");
         });
-        RabbitConfig.ConfigureEndpoints(context);
+        rabbitConfig.ConfigureEndpoints(context);
     });
 });
 

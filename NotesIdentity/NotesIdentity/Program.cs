@@ -21,6 +21,8 @@ builder.Services.AddCors(config =>
 
 builder.Services.AddMassTransit(massTransitConfig =>
 {
+    var assembly = typeof(Program).Assembly;
+    massTransitConfig.AddConsumers(assembly);
     massTransitConfig.UsingRabbitMq((context, rabbitConfig) =>
     {
         rabbitConfig.Host("localhost", "/", config =>

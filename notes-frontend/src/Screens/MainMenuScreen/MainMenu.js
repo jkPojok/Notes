@@ -4,15 +4,23 @@ import "./Styles/MainMenuStyles.css";
 import Note from "./Note"
 import { useState } from "react";
 import { useEffect } from "react";
-import { signInRedirect, signOutRedirect } from "../../auth/AuthService";
+import { isLoggedIn, signInRedirect, signOutRedirect } from "../../auth/AuthService";
 import ProfileSheet from "./ProfileSheet";
 import UserApi from "../../api/UserApi";
 
 export default function MainMenu() {
 
+    const [isUserLoggedInState, setUserLoggedInState] = useState({
+        isLoggedIn: false
+    });
+
     const [userState, setUserState] = useState({
         user: null,
         isActive: false
+    });
+
+    const [userImageState, setUserImageState] = useState({
+        image: null
     });
 
     const [noteState, setNoteState] = useState({
@@ -28,6 +36,16 @@ export default function MainMenu() {
     const usersApi = new UserApi();
 
     useEffect(() => {
+        isLoggedIn().then((result) => {
+            setUserLoggedInState({
+                isLoggedIn: result
+            })
+        });
+
+        usersApi.getUserImage().then((result) => {
+            setUserImageState({image: result})
+        });
+
         notesApi.getNotes().then((result) => {
             setNotesState({
                 notes: result
@@ -88,14 +106,26 @@ export default function MainMenu() {
         usersApi.setUserImage(image);
     }
 
+    const updateAboutMe = (aboutMeText) => {
+        usersApi.updateAboutMe(aboutMeText);
+    }
+
+    const deleteUser = async () => {
+        await usersApi.deleteUser();
+        signOutRedirect();
+    }
+
     return (
         <div className="main-menu-container" onClick={() => {closeNote(); closeUserSheet();}}>
             <header className="main-menu-header">
                 <h1 className="main-menu-header-label">Notes</h1>
                 <div>
-                    <button onClick={() => signInRedirect()}>Login</button>
-                    <button onClick={() => signOutRedirect()}>Logout</button>
-                    <img className="profile-image" onClick={openUserSheet} />
+                    {isUserLoggedInState.isLoggedIn == false && <button onClick={() => signInRedirect()}>Login</button>}
+                    {isUserLoggedInState.isLoggedIn == true &&
+                    <div>
+                        <button onClick={() => signOutRedirect()}>Logout</button>
+                        <img className="profile-image" src={userImageState.image} onClick={openUserSheet} />
+                    </div>}
                 </div>
             </header>
             <div className="notes-grid-container">
@@ -109,7 +139,7 @@ export default function MainMenu() {
             }
             {userState.user != null && userState.isActive === true &&
                 <div className="profile-sheet-container">
-                    <ProfileSheet user={userState.user} setUserImage={setUserImage} />
+                    <ProfileSheet user={userState.user} setUserImage={setUserImage} updateAboutMe={updateAboutMe} deleteUser={deleteUser} />
                 </div>
             }
         </div>

@@ -9,7 +9,7 @@ export default function PreviewNote(props) {
     return (
         <div className="note-preview" onClick={() => openNote()}>
             <span className="note-preview-title">{props.note.title}</span>
-            <span className="note-preview-text">&nbsp; {props.note.text}</span>
+            <span className="note-preview-text">{props.note.text}</span>
         </div>
     );
 }

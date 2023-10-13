@@ -14,6 +14,7 @@ namespace NotesIdentity.Models
         public string? Password { get; set; }
         [Required]
         [DataType(DataType.Password)]
+        [Compare("Password")]
         public string? PasswordConfirmation { get; set; }
         public string? ReturnUrl { get; set; }
     }

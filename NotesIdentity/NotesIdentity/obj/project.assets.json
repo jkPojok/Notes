@@ -1167,7 +1167,7 @@
           }
         }
       },
-      "NotesContracts/1.0.0": {
+      "NotesContracts/1.0.1": {
         "type": "package",
         "compile": {
           "lib/net7.0/NotesContracts.dll": {}
@@ -3316,14 +3316,14 @@
         "newtonsoft.json.nuspec"
       ]
     },
-    "NotesContracts/1.0.0": {
-      "sha512": "cgqW53kVpg2Wr1iW28oxxbS40FFNAadTOxu65tq2FSpZDsWzklDWTMeikNJeA8XDFO6JtPE1HxN41zEQHotTTg==",
+    "NotesContracts/1.0.1": {
+      "sha512": "a7crn4J1wEI0T/kITum5vxTKfe46V2X/Lq3WGnzV6hAhvGIoigTYddYPadwMjWXM+E6z+HryTvOGxGEJ2x+LHQ==",
       "type": "package",
-      "path": "notescontracts/1.0.0",
+      "path": "notescontracts/1.0.1",
       "files": [
         ".nupkg.metadata",
         "lib/net7.0/NotesContracts.dll",
-        "notescontracts.1.0.0.nupkg.sha512",
+        "notescontracts.1.0.1.nupkg.sha512",
         "notescontracts.nuspec"
       ]
     },
@@ -4440,7 +4440,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.11",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.19.4",
-      "NotesContracts >= 1.0.0"
+      "NotesContracts >= 1.0.1"
     ]
   },
   "packageFolders": {
@@ -4527,7 +4527,7 @@
           },
           "NotesContracts": {
             "target": "Package",
-            "version": "[1.0.0, )"
+            "version": "[1.0.1, )"
           }
         },
         "imports": [

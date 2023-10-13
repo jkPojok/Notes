@@ -11,7 +11,7 @@ namespace NotesUsersApi.Controllers
     {
         private readonly ISender _mediatr;
 
-        public UserController(ISender mediatr) 
+        public UserController(ISender mediatr)
         {
             _mediatr = mediatr;
         }
@@ -23,6 +23,13 @@ namespace NotesUsersApi.Controllers
             return Ok(await _mediatr.Send(new GetUserQuery { Id = UserId }, cancellationToken));
         }
 
+        [HttpDelete]
+        [Authorize]
+        public async Task<ActionResult> DeleteUser(CancellationToken cancellationToken)
+        {
+            return Ok(await _mediatr.Send(new DeleteUserCommand { Id = UserId }, cancellationToken));
+        }
+
         [HttpPut] // TODO: Сделать HTTPPOST с возвращением строки, чтобы она сразу записывалась в <img />
         [Authorize]
         public async Task<ActionResult<string>> SetUserImage([FromForm] IFormFile image, CancellationToken cancellationToken)
@@ -30,11 +37,18 @@ namespace NotesUsersApi.Controllers
             return Ok(await _mediatr.Send(new SetUserImageCommand { UserId = UserId, Image = image }, cancellationToken));
         }
 
-        [HttpPost]
+        [HttpGet]
         [Authorize]
-        public async Task<ActionResult<string>> UpdateAboutMe(string aboutMe, CancellationToken cancellationToken)
+        public async Task<ActionResult<string>> GetUserImage(CancellationToken cancellationToken)
         {
-            return Ok(await _mediatr.Send(new UpdateAboutMeCommand { UserId = UserId, AboutMe = aboutMe}, cancellationToken));
+            return Ok(await _mediatr.Send(new GetUserImageQuery { UserId = UserId }, cancellationToken));
+        }
+
+        [HttpPut]
+        [Authorize]
+        public async Task<ActionResult<string>> UpdateAboutMe(string aboutMeText, CancellationToken cancellationToken)
+        {
+            return Ok(await _mediatr.Send(new UpdateAboutMeCommand { UserId = UserId, AboutMe = aboutMeText}, cancellationToken));
         }
     }
 }

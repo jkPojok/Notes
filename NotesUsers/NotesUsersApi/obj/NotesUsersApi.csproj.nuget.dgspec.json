@@ -57,6 +57,10 @@
               "target": "Package",
               "version": "[1.0.1, )"
             },
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.1.1, )"
@@ -68,6 +72,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.11, )"
+            },
+            "NotesContracts": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             }
           },
           "imports": [
@@ -286,7 +294,7 @@
             },
             "NotesContracts": {
               "target": "Package",
-              "version": "[1.0.0, )"
+              "version": "[1.0.1, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

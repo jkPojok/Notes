@@ -22,14 +22,26 @@ export async function loadUser() {
     userManager.events.addAccessTokenExpired(function() {
         signInRedirect();
     });
-    
-    if (user !== null) {
-        console.log(user.expires_in);
-    }
 
-    console.log(user);
     const token = user?.access_token;
     localStorage.setItem("token", token ? token : "");
+}
+
+export async function isLoggedIn() {
+    var user = await userManager.getUser();
+
+    if (user == null) {
+        return false;
+    }
+    else if (user != null) {
+        return true;
+    }
+
+    return false;
+}
+
+export async function changePassword() {
+    window.location.assign("https://localhost:7280/auth/passwordchanging");
 }
 
 export const signInRedirect = () => {
