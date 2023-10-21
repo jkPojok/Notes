@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G4w7OcnXPCVqRVQQnS672UlI7Q6zsz7a0bzjmortskLijWDsJ0ibFXgwVRgCzcImWNgaf+CBMwuhEXmbAaNDDw==",
+  "dgSpecHash": "mxZqfDionPJmubArNaNUS9UkaqaDQB6JnbfIj8YOhevixyLPI5UMRDo+C5s3QaYMEmKFh3QWIY83KEqkMDdDlA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\NotesProject\\NotesIdentity\\NotesIdentity\\NotesIdentity.csproj",
   "expectedPackageFiles": [
@@ -68,7 +68,7 @@
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
-    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.1\\notescontracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.2\\notescontracts.1.0.2.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",

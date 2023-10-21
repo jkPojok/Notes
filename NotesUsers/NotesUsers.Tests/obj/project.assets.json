@@ -1192,7 +1192,7 @@
           }
         }
       },
-      "NotesContracts/1.0.1": {
+      "NotesContracts/1.0.2": {
         "type": "package",
         "compile": {
           "lib/net7.0/NotesContracts.dll": {}
@@ -2890,7 +2890,7 @@
           "MediatR": "12.1.1",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.EntityFrameworkCore": "7.0.11",
-          "NotesContracts": "1.0.1"
+          "NotesContracts": "1.0.2"
         },
         "compile": {
           "bin/placeholder/Application.dll": {}
@@ -4491,14 +4491,14 @@
         "packageIcon.png"
       ]
     },
-    "NotesContracts/1.0.1": {
-      "sha512": "a7crn4J1wEI0T/kITum5vxTKfe46V2X/Lq3WGnzV6hAhvGIoigTYddYPadwMjWXM+E6z+HryTvOGxGEJ2x+LHQ==",
+    "NotesContracts/1.0.2": {
+      "sha512": "o8hPhczantni61OFSMTlhsYMxmY1zlOV9yLYFjFdPkOxXLotzxCBr/Owc60fjg+z8kvHv+k7QBLjOp7sq/GhJQ==",
       "type": "package",
-      "path": "notescontracts/1.0.1",
+      "path": "notescontracts/1.0.2",
       "files": [
         ".nupkg.metadata",
         "lib/net7.0/NotesContracts.dll",
-        "notescontracts.1.0.1.nupkg.sha512",
+        "notescontracts.1.0.2.nupkg.sha512",
         "notescontracts.nuspec"
       ]
     },
@@ -8685,9 +8685,10 @@
         "net7.0"
       ],
       "sources": {
-        "C:\\NugetPackages": {},
+        "C:\\NugetPackages\\Release": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/jkPojok/index.json": {}
       },
       "frameworks": {
         "net7.0": {

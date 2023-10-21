@@ -3,6 +3,7 @@ using Application.Users.Commands;
 using Application.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NotesUsersApi.Controllers

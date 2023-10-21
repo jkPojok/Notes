@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "WWAFm7I/WQn1iUNa8Ex9R8Z/e3DBOZVWnIiBwGpxFTZTbkORuX5mcmheDIWjyfONdBnR3YxEy6HmHn+roP/MNg==",
+  "dgSpecHash": "HipZ0F/QirhS09c+jDp6y/y+CDhQ+5IMX8Mqfmz8weeoxpLkFBCoCnbH3gNdi0aXcV4+s3X1sXM4ajsOMO4yag==",
   "success": true,
   "projectFilePath": "C:\\Projects\\NotesProject\\NotesUsers\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -55,7 +55,7 @@
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.1\\notescontracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.2\\notescontracts.1.0.2.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.1\\system.configuration.configurationmanager.6.0.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.1\\system.diagnostics.diagnosticsource.7.0.1.nupkg.sha512",

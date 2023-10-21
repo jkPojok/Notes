@@ -1,10 +1,12 @@
 using MassTransit;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Logging;
 using NotesIdentity;
 using NotesIdentity.Data;
 using NotesIdentity.Entities;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,7 @@ builder.Services.AddCors(config =>
     config.AddPolicy("AllowServices", builder =>
     {
         builder
-        .WithOrigins("http://localhost:3000", "https://localhost:7278")
+        .AllowAnyOrigin()
         .AllowAnyHeader()
         .AllowAnyMethod();
     });
@@ -25,7 +27,7 @@ builder.Services.AddMassTransit(massTransitConfig =>
     massTransitConfig.AddConsumers(assembly);
     massTransitConfig.UsingRabbitMq((context, rabbitConfig) =>
     {
-        rabbitConfig.Host("localhost", "/", config =>
+        rabbitConfig.Host("notesrabbit", "/", config =>
         {
             config.Username("guest");
             config.Password("guest");
@@ -41,6 +43,8 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 });
 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+IdentityModelEventSource.ShowPII = true;
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(config =>
 {
@@ -58,9 +62,11 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/auth/login";
     options.LogoutPath = "/auth/logout";
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.None;
 });
 
-builder.Services.AddIdentityServer()
+builder.Services.AddIdentityServer(x => x.IssuerUri = "http://notesidentity")    // THE MOST IMPORTANT PART
     .AddAspNetIdentity<AppUser>()
     .AddInMemoryClients(IdentityServerConfiguration.AddClients())
     .AddInMemoryApiScopes(IdentityServerConfiguration.AddScopes())
@@ -70,15 +76,19 @@ builder.Services.AddIdentityServer()
 
 var app = builder.Build();
 
-app.UseStaticFiles(new StaticFileOptions
+var fordwardedHeaderOptions = new ForwardedHeadersOptions
 {
-    FileProvider = new PhysicalFileProvider(Path.Combine(app.Environment.ContentRootPath, "Views/Styles")),
-    RequestPath = "/views/styles"
-});
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+};
+fordwardedHeaderOptions.KnownNetworks.Clear();
+fordwardedHeaderOptions.KnownProxies.Clear();
 
-app.UseRouting();
+app.UseForwardedHeaders(fordwardedHeaderOptions);
+
+app.UseStaticFiles();
+
 app.UseCors("AllowServices");
-app.UseIdentityServer();
 app.MapControllers();
+app.UseIdentityServer();
 
 app.Run();

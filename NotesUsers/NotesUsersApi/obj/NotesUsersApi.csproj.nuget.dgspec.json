@@ -21,9 +21,10 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\NugetPackages": {},
+          "C:\\NugetPackages\\Release": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/jkPojok/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -75,7 +76,7 @@
             },
             "NotesContracts": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[1.0.2, )"
             }
           },
           "imports": [
@@ -115,9 +116,10 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\NugetPackages": {},
+          "C:\\NugetPackages\\Release": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/jkPojok/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -171,9 +173,10 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\NugetPackages": {},
+          "C:\\NugetPackages\\Release": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/jkPojok/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -247,9 +250,10 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\NugetPackages": {},
+          "C:\\NugetPackages\\Release": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/jkPojok/index.json": {}
         },
         "frameworks": {
           "net7.0": {
@@ -294,7 +298,7 @@
             },
             "NotesContracts": {
               "target": "Package",
-              "version": "[1.0.1, )"
+              "version": "[1.0.2, )"
             },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",

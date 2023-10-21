@@ -2,6 +2,8 @@ using Application;
 using Infrastructure;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Logging;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +11,13 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowServices", builder =>
     builder
-    .WithOrigins("http://localhost:3000", "http://localhost:5101", "https://localhost:7280")
+    .AllowAnyOrigin()
     .AllowAnyHeader()
     .AllowAnyMethod()
     );
 });
+
+IdentityModelEventSource.ShowPII = true;
 
 builder.Services.AddAuthentication(config =>
 {
@@ -22,7 +26,7 @@ builder.Services.AddAuthentication(config =>
 })
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config =>
     {
-        config.Authority = "https://localhost:7280/";
+        config.Authority = "http://notesidentity";
         config.Audience = "NotesAppApiResources";
         config.RequireHttpsMetadata = false;
     });
@@ -33,7 +37,7 @@ builder.Services.AddMassTransit(massTransitConfig =>
     massTransitConfig.AddConsumers(assembly);
     massTransitConfig.UsingRabbitMq((context, rabbitConfig) =>
     {
-        rabbitConfig.Host("localhost", "/", config =>
+        rabbitConfig.Host("notesrabbit", "/", config =>
         {
             config.Username("guest");
             config.Password("guest");
@@ -50,12 +54,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseRouting();
 app.UseCors("AllowServices");
+app.MapControllers();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI();
-app.MapControllers();
 
 app.Run();

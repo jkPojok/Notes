@@ -7,7 +7,7 @@ import { loadUser } from "./auth/AuthService";
 function App() {
 
   loadUser();
-
+  
   return (
     <Router>
       <div className="app">

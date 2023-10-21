@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "skwU+b1RWkA2bhq6rkMzTnlKqEr167MPHlRlHMdV+hbQj28qxmlBhNn7jDayG5jkb53cUaGy7s68DgzPhdQ5HA==",
+  "dgSpecHash": "JKHvKUmmuVTRryEGgO90pcuhwGI7MRqdDvzrCsPqt4DqSauBt1DSVaZMnQpQzc5K8Z2J+bFxSPgCf4eSKK01+w==",
   "success": true,
   "projectFilePath": "C:\\Projects\\NotesProject\\NotesUsers\\Application\\Application.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,7 @@
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.1\\notescontracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.2\\notescontracts.1.0.2.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.1\\system.diagnostics.diagnosticsource.7.0.1.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",

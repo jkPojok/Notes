@@ -40,3 +40,9 @@ services:
     image: rabbitmq:3.9.29-management
     ports:
       - "15672:15672" 
+  nginxproxy:
+    image: nginx:mainline
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf

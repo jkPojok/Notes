@@ -5,6 +5,7 @@
     <version>1.0.1</version>
     <authors>NotesContracts</authors>
     <description>Package Description</description>
+    <repository url="https://github.com/jkPojok/NotesContracts" />
     <dependencies>
       <group targetFramework="net7.0" />
     </dependencies>

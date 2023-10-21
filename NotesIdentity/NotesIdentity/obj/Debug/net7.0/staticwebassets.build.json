@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "e0TLbOCbZpHeLpYjoQlI/Zmve3s2/jm7tk/3mZ7Ba6w=",
+  "Hash": "As0PtzRZBqcO/ilCiZ5Bvn1CA7lZgbmOTYjhABBUtrc=",
   "Source": "NotesIdentity",
   "BasePath": "_content/NotesIdentity",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "NotesIdentity\\wwwroot",
+      "Source": "NotesIdentity",
+      "ContentRoot": "C:\\Projects\\NotesProject\\NotesIdentity\\NotesIdentity\\wwwroot\\",
+      "BasePath": "_content/NotesIdentity",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Projects\\NotesProject\\NotesIdentity\\NotesIdentity\\wwwroot\\Views\\Styles\\AuthStyles.css",
+      "SourceId": "NotesIdentity",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Projects\\NotesProject\\NotesIdentity\\NotesIdentity\\wwwroot\\",
+      "BasePath": "_content/NotesIdentity",
+      "RelativePath": "Views/Styles/AuthStyles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Views\\Styles\\AuthStyles.css"
+    }
+  ]
 }

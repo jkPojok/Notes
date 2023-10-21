@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "g/SrmfnL/kn6+j1wMb5XZoPL5DylrEY0/ncLldIszoQ0JNHRRj9djes2Pa4soByOoGzVU2Nms4Vl3VqlSa3NSA==",
+  "dgSpecHash": "3dRS4qMgNbDWKc16fnayCpjoUqvn1Wm4cYZWu+5oMUMdTyzW7fjOhd+hHPBsy9u7v1TnDqXVRVZYbzFDZ68UUA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\NotesProject\\NotesUsers\\NotesUsersApi\\NotesUsersApi.csproj",
   "expectedPackageFiles": [
@@ -58,7 +58,7 @@
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.1\\notescontracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Pojok\\.nuget\\packages\\notescontracts\\1.0.2\\notescontracts.1.0.2.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Pojok\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

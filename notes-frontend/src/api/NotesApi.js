@@ -3,7 +3,7 @@ export default class NotesApi {
     async getNotes() {
         var result;
 
-        await fetch(`https://localhost:7278/api/notes/getnotes`,
+        await fetch(`notesapi/notes/getnotes`,
             {
                 method: 'GET',
                 headers: {
@@ -27,7 +27,7 @@ export default class NotesApi {
     async getNote(id) {
         var result;
 
-        await fetch(`https://localhost:7278/api/notes/getnote/${id}`,
+        await fetch(`notesapi/notes/getnote/${id}`,
             {
                 method: 'GET',
                 headers: {
@@ -51,7 +51,7 @@ export default class NotesApi {
     async createNote(note) {
         var result;
 
-        await fetch(`https://localhost:7278/api/notes/createnote`,
+        await fetch(`notesapi/notes/createnote`,
             {
                 method: 'POST',
                 headers: {
@@ -76,7 +76,7 @@ export default class NotesApi {
     async updateNote(note) {
         var result;
 
-        await fetch(`https://localhost:7278/api/notes/updatenote`,
+        await fetch(`notesapi/notes/updatenote`,
             {
                 method: 'PUT',
                 headers: {
@@ -101,7 +101,7 @@ export default class NotesApi {
     async deleteNote(id) {
         var result;
 
-        await fetch(`https://localhost:7278/api/notes/deletenote/${id}`,
+        await fetch(`notesapi/notes/deletenote/${id}`,
             {
                 method: 'DELETE',
                 headers: {

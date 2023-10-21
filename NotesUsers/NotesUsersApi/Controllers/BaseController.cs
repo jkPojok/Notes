@@ -3,7 +3,7 @@ using System.Security.Claims;
 
 namespace NotesUsersApi.Controllers
 {
-    [Route("[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     public class BaseController : ControllerBase
     {
         protected Guid UserId => !User.Identity.IsAuthenticated 

@@ -11,7 +11,7 @@
     "C:\\Users\\Pojok\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.1",
+    "version": "1.0.2",
     "restore": {
       "projectUniqueName": "C:\\Projects\\NotesProject\\NotesContracts\\NotesContracts\\NotesContracts.csproj",
       "projectName": "NotesContracts",
@@ -27,7 +27,7 @@
         "net7.0"
       ],
       "sources": {
-        "C:\\NugetPackages": {},
+        "C:\\NugetPackages\\Release": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },

@@ -1,14 +1,15 @@
 import { Log, UserManager } from "oidc-client";
 
 const userManagerSettings = {
-    authority: "https://localhost:7280/",
+    authority: "authority",
     client_id: "notes-app",
     response_type: "code",
     scope: "openid profile NotesApp",
-    redirect_uri: "http://localhost:3000/signin",
-    post_logout_redirect_uri: "http://localhost:3000/signout",
+    redirect_uri: "http://localhost/signin",
+    post_logout_redirect_uri: "http://localhost/signout",
     automaticSilentRenew: false,
-    monitorSession: false
+    monitorSession: false,
+    
 };
 
 Log.logger = console;
@@ -18,7 +19,7 @@ const userManager = new UserManager(userManagerSettings);
 
 export async function loadUser() {
     const user = await userManager.getUser();
-
+    
     userManager.events.addAccessTokenExpired(function() {
         signInRedirect();
     });
@@ -41,7 +42,7 @@ export async function isLoggedIn() {
 }
 
 export async function changePassword() {
-    window.location.assign("https://localhost:7280/auth/passwordchanging");
+    window.location.assign("http://localhost:5102/auth/passwordchanging");
 }
 
 export const signInRedirect = () => {

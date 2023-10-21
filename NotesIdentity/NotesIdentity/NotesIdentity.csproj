@@ -22,7 +22,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
-    <PackageReference Include="NotesContracts" Version="1.0.1" />
+    <PackageReference Include="NotesContracts" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Views\Styles\AuthStyles.css" />
   </ItemGroup>
 
 </Project>

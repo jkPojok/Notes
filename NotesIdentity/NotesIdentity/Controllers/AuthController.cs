@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using NotesContracts;
 using NotesIdentity.Entities;
 using NotesIdentity.Models;
-using System.Security.Claims;
 
 namespace NotesIdentity.Controllers
 {

@@ -7,6 +7,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+COPY ["NotesUsersApi/nuget.config", ""]
+WORKDIR /src
 COPY ["NotesUsersApi/NotesUsersApi.csproj", "NotesUsersApi/"]
 RUN dotnet restore "NotesUsersApi/NotesUsersApi.csproj"
 COPY . .

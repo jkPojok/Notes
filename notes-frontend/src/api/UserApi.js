@@ -3,7 +3,7 @@ export default class UserApi {
     async getUserInfo() {
         var result;
 
-        await fetch(`https://localhost:7003/user/getuser`, {
+        await fetch(`usersapi/user/getuser`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export default class UserApi {
     }
 
     async deleteUser() {
-        await fetch(`https://localhost:7003/user/deleteuser`, {
+        await fetch(`usersapi/user/deleteuser`, {
             method: 'DELETE',
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -37,7 +37,7 @@ export default class UserApi {
         const formData = new FormData();
         formData.append('image', image);
 
-        await fetch(`https://localhost:7003/user/setuserimage`, {
+        await fetch(`usersapi/user/setuserimage`, {
             method: 'PUT',
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -49,7 +49,7 @@ export default class UserApi {
     async getUserImage() {
         var result;
 
-        await fetch(`https://localhost:7003/user/getuserimage`, {
+        await fetch(`usersapi/user/getuserimage`, {
             method: 'GET',
             headers: {
                 Accept: 'text/plain',
@@ -71,7 +71,7 @@ export default class UserApi {
 
     async updateAboutMe(aboutMeText) {
 
-        await fetch(`https://localhost:7003/user/updateaboutme?` + new URLSearchParams({
+        await fetch(`usersapi/user/updateaboutme?` + new URLSearchParams({
             aboutMeText: aboutMeText
         }),
             {
