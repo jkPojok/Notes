@@ -1,15 +1,17 @@
 import { Log, UserManager } from "oidc-client";
 
 const userManagerSettings = {
-    authority: "authority",
+    //authority: "authority",
+    authority: "http://localhost:5121",
     client_id: "notes-app",
     response_type: "code",
     scope: "openid profile NotesApp",
-    redirect_uri: "http://localhost/signin",
-    post_logout_redirect_uri: "http://localhost/signout",
+    //redirect_uri: "http://localhost/signin",
+    //post_logout_redirect_uri: "http://localhost/signout",
+    redirect_uri: "http://localhost:3000/signin",
+    post_logout_redirect_uri: "http://localhost:3000/signout",
     automaticSilentRenew: false,
     monitorSession: false,
-    
 };
 
 Log.logger = console;
@@ -19,8 +21,14 @@ const userManager = new UserManager(userManagerSettings);
 
 export async function loadUser() {
     const user = await userManager.getUser();
-    
-    userManager.events.addAccessTokenExpired(function() {
+
+    setTimeout(() => {
+        if (user == null) {
+            signInRedirect();
+        }
+    }, 500);
+
+    userManager.events.addAccessTokenExpired(function () {
         signInRedirect();
     });
 
@@ -31,10 +39,10 @@ export async function loadUser() {
 export async function isLoggedIn() {
     var user = await userManager.getUser();
 
-    if (user == null) {
+    if (user === null) {
         return false;
     }
-    else if (user != null) {
+    else if (user !== null) {
         return true;
     }
 
@@ -42,11 +50,11 @@ export async function isLoggedIn() {
 }
 
 export async function changePassword() {
-    window.location.assign("http://localhost:5102/auth/passwordchanging");
+    window.location.assign("http://localhost:5121/auth/passwordchanging");
 }
 
-export const signInRedirect = () => {
-    userManager.signinRedirect();
+export const signInRedirect = async () => {
+    await userManager.signinRedirect();
 }
 
 export const signInRedirectCallback = async () => {

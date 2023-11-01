@@ -5,14 +5,14 @@ using Xunit;
 
 namespace NotesUsers.Tests.Tests.Users.Queries
 {
-    public class GetUserImageQueryHandlerTests : TestCQRSBase
+    public class GetPrimaryUserInfoQueryHandlerTests : TestCQRSBase
     {
         [Fact]
         public async Task GetUserImageQueryHandlerThrowsNotFoundExceptionWhenThereIsNoUserInDatabase()
         {
             //Arrange
-            var handler = new GetUserImageQueryHandler(_dbContext);
-            var query = new GetUserImageQuery
+            var handler = new GetPrimaryUserInfoQueryHandler(_dbContext, _mapper);
+            var query = new GetPrimaryUserInfoQuery
             {
                 UserId = Guid.NewGuid()
             };
@@ -25,8 +25,8 @@ namespace NotesUsers.Tests.Tests.Users.Queries
         public async Task GetUserImageQueryHandlerSuccess()
         {
             //Arrange
-            var handler = new GetUserImageQueryHandler(_dbContext);
-            var query = new GetUserImageQuery
+            var handler = new GetPrimaryUserInfoQueryHandler(_dbContext, _mapper);
+            var query = new GetPrimaryUserInfoQuery
             {
                 UserId = UsersContextFactory.UserBId
             };
@@ -37,7 +37,7 @@ namespace NotesUsers.Tests.Tests.Users.Queries
             //Assert
             Assert.NotNull(result);
             Assert.NotNull(_dbContext.Users.SingleOrDefault(x => 
-                x.UserImageLink == result &&
+                x.UserImageLink == result.UserImageLink &&
                 x.Id == UsersContextFactory.UserBId));
         }
     }

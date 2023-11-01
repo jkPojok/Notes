@@ -1,5 +1,6 @@
 import "../MainMenuScreen/Styles/NotesGridStyles.css";
 import PreviewNote from "./PreviewNote";
+import NoteToCreate from "./NoteToCreate";
 
 export default function NotesGrid(props) {
 
@@ -14,6 +15,7 @@ export default function NotesGrid(props) {
                     props.notes.map(note => (
                         <PreviewNote note={note} key={note.id} onOpenNote={openNote} />
                     ))}
+                <NoteToCreate createBlankNote={props.createBlankNote}/>
             </div>
         </div>
     );

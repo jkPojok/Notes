@@ -5,6 +5,7 @@ import Note from "./Note"
 import { useState } from "react";
 import { useEffect } from "react";
 import { isLoggedIn, signInRedirect, signOutRedirect } from "../../auth/AuthService";
+import BackgroundImagesMenu from "./BackgroundImagesMenu";
 import ProfileSheet from "./ProfileSheet";
 import UserApi from "../../api/UserApi";
 
@@ -19,7 +20,7 @@ export default function MainMenu() {
         isActive: false
     });
 
-    const [userImageState, setUserImageState] = useState({
+    const [userImagesState, setUserImagesState] = useState({
         image: null
     });
 
@@ -32,6 +33,10 @@ export default function MainMenu() {
         notes: []
     })
 
+    const [backgroundMenuState, setBackgroundMenuState] = useState({
+        isActive: false
+    });
+
     const notesApi = new NotesApi();
     const usersApi = new UserApi();
 
@@ -42,8 +47,10 @@ export default function MainMenu() {
             })
         });
 
-        usersApi.getUserImage().then((result) => {
-            setUserImageState({image: result})
+        usersApi.getPrimaryUserInfo().then((result) => {
+            setUserImagesState({
+                image: result ? result.userImageLink : null
+            })
         });
 
         notesApi.getNotes().then((result) => {
@@ -102,6 +109,16 @@ export default function MainMenu() {
         });
     }
 
+    const openBackgroundImagesMenu = () => {
+        setBackgroundMenuState({isActive: true});
+    }
+
+    const closeBackgroundImagesMenu = () => {
+        if (backgroundMenuState.isActive === true) {
+            setBackgroundMenuState({isActive: false});
+        }
+    }
+
     const setUserImage = (image) => {
         usersApi.setUserImage(image);
     }
@@ -110,27 +127,31 @@ export default function MainMenu() {
         usersApi.updateAboutMe(aboutMeText);
     }
 
+    const setUserGender = (gender) => {
+        usersApi.setUserGender(gender);
+    }
+
     const deleteUser = async () => {
         await usersApi.deleteUser();
         signOutRedirect();
     }
 
     return (
-        <div className="main-menu-container" onClick={() => {closeNote(); closeUserSheet();}}>
+        <div className="main-menu-container" style={{background: `url(${localStorage.getItem('bgImg')})`}} onClick={() => {closeNote(); closeUserSheet(); closeBackgroundImagesMenu();}}>
             <header className="main-menu-header">
-                <h1 className="main-menu-header-label">Notes</h1>
+                <h1 className="main-menu-header-label">My NotesX</h1>
                 <div>
-                    {isUserLoggedInState.isLoggedIn == false && <button onClick={() => signInRedirect()}>Login</button>}
+                    {isUserLoggedInState.isLoggedIn == false && <button onClick={() => signInRedirect()}>Войти</button>}
                     {isUserLoggedInState.isLoggedIn == true &&
                     <div>
-                        <button onClick={() => signOutRedirect()}>Logout</button>
-                        <img className="profile-image" src={userImageState.image} onClick={openUserSheet} />
+                        <button onClick={() => signOutRedirect()}>Выход</button>
+                        <img className="profile-image mb-1" src={userImagesState.image} onClick={openUserSheet} />
                     </div>}
                 </div>
             </header>
+
             <div className="notes-grid-container">
-                <NotesGrid notes={notesState.notes} openNote={openNote} />
-                <i className="bi bi-plus-circle-fill note-add-icon" onClick={createBlankNote}></i>
+                <NotesGrid notes={notesState.notes} openNote={openNote} createBlankNote={createBlankNote} />
             </div>
             {noteState.note != null && noteState.isActive === true &&
                 <div className="note-container">
@@ -139,9 +160,26 @@ export default function MainMenu() {
             }
             {userState.user != null && userState.isActive === true &&
                 <div className="profile-sheet-container">
-                    <ProfileSheet user={userState.user} setUserImage={setUserImage} updateAboutMe={updateAboutMe} deleteUser={deleteUser} />
+                    <ProfileSheet user={userState.user} setUserImage={setUserImage} updateAboutMe={updateAboutMe}
+                    deleteUser={deleteUser} setUserGender={setUserGender} />
                 </div>
             }
+            {backgroundMenuState.isActive === true &&
+                <div className="background-menu-container">
+                    <BackgroundImagesMenu />
+                </div>
+            }
+            
+            <footer className="main-menu-footer">
+                <div className="main-menu-footer-container">
+                    <span>Время: </span>
+                    <span>Пользовательское соглашение</span>
+                    <span>©2023 My NotesX</span>
+                </div>
+                <div>
+                    <button className="pallete-button bi bi-palette-fill" onClick={openBackgroundImagesMenu} /> 
+                </div>
+            </footer>
         </div>
     );
 }

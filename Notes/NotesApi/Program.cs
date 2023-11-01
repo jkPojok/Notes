@@ -1,11 +1,7 @@
 using Application;
 using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Microsoft.OpenApi.Writers;
-using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +24,8 @@ builder.Services.AddAuthentication(options =>
 })
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config => 
     {
-        config.Authority = "http://notesidentity";
+        //config.Authority = "http://notesidentity";
+        config.Authority = "http://localhost:5121";
         config.Audience = "NotesAppApiResources";
         config.RequireHttpsMetadata = false;
     });

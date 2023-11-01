@@ -26,7 +26,8 @@ namespace NotesUsers.Tests.Common
                     Email = "UserA@test.com",
                     Gender = Gender.Male,
                     AboutMe = "Some about me text",
-                    RegistrationDate = DateTime.Now
+                    RegistrationDate = DateTime.Now,
+                    UserImageLink = "https://test-linkA"
                 },
                 new User
                 {
@@ -35,7 +36,8 @@ namespace NotesUsers.Tests.Common
                     Email = "UserB@test.com",
                     Gender = Gender.Male,
                     AboutMe = "Some about me text",
-                    RegistrationDate = DateTime.Now
+                    RegistrationDate = DateTime.Now,
+                    UserImageLink = "https://test-linkB"
                 },
                 new User
                 {
@@ -44,7 +46,8 @@ namespace NotesUsers.Tests.Common
                     Email = "UserForDelete@test.com",
                     Gender = Gender.Male,
                     AboutMe = "Some about me text",
-                    RegistrationDate = DateTime.Now
+                    RegistrationDate = DateTime.Now,
+                    UserImageLink = "https://test-linkForDelete"
                 });
 
             dbContext.SaveChanges();

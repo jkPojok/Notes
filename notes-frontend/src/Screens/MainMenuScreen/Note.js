@@ -31,8 +31,8 @@ export default function Note(props) {
 
       <div className="note-footer">
         <div>
-          <span className="note-data">Edit date: {props.note.dateOfEditing}</span> <br />
-          <span className="note-data" >Creation date: {props.note.dateOfCreation}</span>
+          <span className="note-data">Дата редактирования: {props.note.dateOfEditing}</span> <br />
+          <span className="note-data">Дата создания: {props.note.dateOfCreation}</span>
         </div>
         <div className="buttons-container">
           <input type="button" className="delete-button" onClick={deleteNote} value="Delete"></input>

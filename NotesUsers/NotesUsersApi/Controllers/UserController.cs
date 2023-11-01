@@ -1,9 +1,9 @@
 ﻿using Application.Dto;
 using Application.Users.Commands;
 using Application.Users.Queries;
+using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace NotesUsersApi.Controllers
@@ -40,9 +40,9 @@ namespace NotesUsersApi.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<string>> GetUserImage(CancellationToken cancellationToken)
+        public async Task<ActionResult<PrimaryUserInfoDto>> GetPrimaryUserInfo(CancellationToken cancellationToken)
         {
-            return Ok(await _mediatr.Send(new GetUserImageQuery { UserId = UserId }, cancellationToken));
+            return Ok(await _mediatr.Send(new GetPrimaryUserInfoQuery { UserId = UserId }, cancellationToken));
         }
 
         [HttpPut]
@@ -50,6 +50,13 @@ namespace NotesUsersApi.Controllers
         public async Task<ActionResult<string>> UpdateAboutMe(string aboutMeText, CancellationToken cancellationToken)
         {
             return Ok(await _mediatr.Send(new UpdateAboutMeCommand { UserId = UserId, AboutMe = aboutMeText}, cancellationToken));
+        }
+
+        [HttpPut]
+        [Authorize]
+        public async Task<ActionResult<Gender>> SetUserGender(Gender gender, CancellationToken cancellationToken)
+        {
+            return Ok(await _mediatr.Send(new SetGenderCommand { Gender = gender, UserId = UserId }, cancellationToken));
         }
     }
 }

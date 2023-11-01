@@ -1,10 +1,31 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { changePassword } from "../../auth/AuthService";
 import "./Styles/ProfileSheetStyles.css";
 
 export default function ProfileSheet(props) {
 
     const aboutMeRef = useRef();
+
+    const maleGenderRadio = useRef();
+    const femaleGenderRadio = useRef();
+    const otherGenderRadio = useRef();
+
+    useEffect(() => {
+        if (props.user.gender === "Male") {
+            maleGenderRadio.current.checked = true;
+        }
+        else if (props.user.gender === "Female") {
+            femaleGenderRadio.current.checked = true;
+        }
+        else if (props.user.gender === "Other") {
+            otherGenderRadio.current.checked = true;
+        }
+
+    }, [])
+
+    const setUserGender = (gender) => {
+        props.setUserGender(gender);
+    }
 
     const setUserImage = (e) => {
         props.setUserImage(e.target.files[0]);
@@ -25,29 +46,39 @@ export default function ProfileSheet(props) {
                 <div>
                     <span>{props.user.username}</span> <br />
                     <span>{props.user.email}</span> <br />
-                    <span>Gender: {props.user.gender}</span>
                 </div>
             </div>
             <div className="profile-options-container">
                 <div className="d-flex flex-column align-items-center">
-                    <span>About me</span>
+                    <span>О себе</span>
                     <textarea ref={aboutMeRef} defaultValue={props.user.aboutMe} className="profile-about-me-text" placeholder="Write something about yourself" />
-                    <button onClick={() => updateAboutMe()}>Save</button>
+                    <button onClick={() => updateAboutMe()}>Сохранить</button>
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                    <span>Profile image</span>
+                    <span>Картинка профиля</span>
                     <input type="file" accept="image/*" onChange={(e) => setUserImage(e)} />
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                    <span>Password</span>
-                    <button onClick={() => changePassword()}>Change password</button>
+                    <span>Гендер</span>
+                    <div className="d-flex">
+                        <input className="ms-4 me-1" ref={maleGenderRadio} type="radio" name="gender" 
+                        onChange={() => setUserGender('Male')} />Мужской
+                        <input className="ms-4 me-1" ref={femaleGenderRadio} type="radio" name="gender"
+                        onChange={() => setUserGender('Female')} />Женский
+                        <input className="ms-4 me-1" ref={otherGenderRadio} type="radio" name="gender" 
+                        onChange={() => setUserGender('Other')} />Другой
+                    </div>
                 </div>
                 <div className="d-flex flex-column align-items-center">
-                    <span>Account</span>
-                    <button className="profile-delete-button" onClick={() => deleteUser()} >Delete account</button>
+                    <span>Пароль</span>
+                    <button onClick={() => changePassword()}>Изменить пароль</button>
+                </div>
+                <div className="d-flex flex-column align-items-center">
+                    <span>Аккаунт</span>
+                    <button className="profile-delete-button" onClick={() => deleteUser()}>Удалить аккаунт</button>
                 </div>
             </div>
-            <span>Registration date: {props.user.registrationDate}</span>
+            <span>Дата регистрации: {props.user.registrationDate}</span>
         </div>
     );
 }

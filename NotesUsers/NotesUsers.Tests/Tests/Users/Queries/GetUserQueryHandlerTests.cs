@@ -11,10 +11,10 @@ namespace NotesUsers.Tests.Tests.Users.Queries
         public async Task GetUserQueryHandlerThrowsNotFoundExceptionWhenThereIsNoUserInDatabase()
         {
             //Arrange
-            var handler = new GetUserImageQueryHandler(_dbContext);
-            var query = new GetUserImageQuery
+            var handler = new GetUserQueryHandler(_dbContext, _mapper);
+            var query = new GetUserQuery
             {
-                UserId = Guid.NewGuid()
+                Id = Guid.NewGuid()
             };
 
             //Assert
@@ -37,7 +37,7 @@ namespace NotesUsers.Tests.Tests.Users.Queries
             //Assert
             Assert.NotNull(result);
             Assert.Equal(result.Id, UsersContextFactory.UserAId);
-            Assert.NotNull(_dbContext.Users.SingleOrDefault(x => 
+            Assert.NotNull(_dbContext.Users.SingleOrDefault(x =>
             x.Id == result.Id &&
             x.Username == result.Username &&
             x.AboutMe == result.AboutMe &&

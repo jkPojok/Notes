@@ -1,29 +1,29 @@
 ﻿@model RegisterViewModel
 
-@*<link href="@Url.Content("~/views/styles/authstyles.css")" rel="stylesheet" type="text/css" />*@
+<link href="@Url.Content("~/views/styles/authstyles.css")" rel="stylesheet" type="text/css" />
 
 <body>
     <div class="auth-container">
-        <h2>Authorization</h2>
+        <h2>Авторизация</h2>
         <form asp-controller="Auth" asp-action="Register" method="post">
             <input type="hidden" asp-for="ReturnUrl" />
             <div>
-                <input asp-for="Username" class="auth-input" placeholder="Username" />
+                <input asp-for="Username" class="auth-input" placeholder="Никнейм" />
             </div>
             <div>
-                <input asp-for="Email" class="auth-input" placeholder="Email" />
+                <input asp-for="Email" class="auth-input" placeholder="Электронная почта" />
             </div>
             <div>
-                <input asp-for="Password" class="auth-input" placeholder="Password" />
+                <input asp-for="Password" class="auth-input" placeholder="Введите пароль" />
             </div>
             <div>
-                <input asp-for="PasswordConfirmation" class="auth-input" placeholder="Confirm password" />
+                <input asp-for="PasswordConfirmation" class="auth-input" placeholder="Подтвердите пароль" />
             </div>
             <div>
-                <input class="auth-submit-input" type="submit" value="Register" />
+                <input class="auth-submit-input" type="submit" value="Зарегестрироваться" />
             </div>
 
-            <a class="auth-redirect-a" asp-controller="Auth" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">Log in</a>
+            <a class="auth-redirect-a" asp-controller="Auth" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">Войти</a>
         </form>
     </div>
 </body>

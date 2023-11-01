@@ -2,7 +2,7 @@ import MainMenu from "./Screens/MainMenuScreen/MainMenu";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignInOIDC from "./auth/SignInOIDC";
 import SignOutOIDC from "./auth/SignOutOIDC";
-import { loadUser } from "./auth/AuthService";
+import { isLoggedIn, loadUser, signInRedirect } from "./auth/AuthService";
 
 function App() {
 

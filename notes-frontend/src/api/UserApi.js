@@ -3,7 +3,7 @@ export default class UserApi {
     async getUserInfo() {
         var result;
 
-        await fetch(`usersapi/user/getuser`, {
+        await fetch(/*`usersapi/user/getuser`*/ `http://localhost:5124/api/user/getuser`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export default class UserApi {
     }
 
     async deleteUser() {
-        await fetch(`usersapi/user/deleteuser`, {
+        await fetch(/*`usersapi/user/deleteuser`*/ `http://localhost:5124/api/user/deleteuser`, {
             method: 'DELETE',
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -37,7 +37,7 @@ export default class UserApi {
         const formData = new FormData();
         formData.append('image', image);
 
-        await fetch(`usersapi/user/setuserimage`, {
+        await fetch(/*`usersapi/user/setuserimage`*/ `http://localhost:5124/api/user/setuserimage`, {
             method: 'PUT',
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
@@ -46,10 +46,10 @@ export default class UserApi {
         });
     }
 
-    async getUserImage() {
+    async getPrimaryUserInfo() {
         var result;
 
-        await fetch(`usersapi/user/getuserimage`, {
+        await fetch(/*`usersapi/user/getprimaryuserinfo`*/ `http://localhost:5124/api/user/getprimaryuserinfo`, {
             method: 'GET',
             headers: {
                 Accept: 'text/plain',
@@ -57,7 +57,7 @@ export default class UserApi {
             }
         })
             .then(response => {
-                return response.text();
+                return response.json();
             })
             .then((requestResult) => {
                 result = requestResult;
@@ -65,13 +65,13 @@ export default class UserApi {
                 (error) => {
                     console.log(error);
                 });
-                
+
         return result;
     }
 
     async updateAboutMe(aboutMeText) {
 
-        await fetch(`usersapi/user/updateaboutme?` + new URLSearchParams({
+        await fetch(/*`usersapi/user/updateaboutme?`*/ `http://localhost:5124/api/user/updateaboutme?` + new URLSearchParams({
             aboutMeText: aboutMeText
         }),
             {
@@ -80,5 +80,19 @@ export default class UserApi {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
                 }
             });
+    }
+
+    async setUserGender(gender) {
+
+        await fetch(/*`usersapi/user/setusergender?`*/ `http://localhost:5124/api/user/setusergender?` + new URLSearchParams({
+            gender: gender
+        }),
+            {
+                method: 'PUT',
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
+            }
+        )
     }
 }

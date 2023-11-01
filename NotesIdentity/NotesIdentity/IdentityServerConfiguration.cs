@@ -23,17 +23,22 @@ namespace NotesIdentity
                     },
                     RedirectUris =
                     {
-                        "http://localhost/signin"
+                        //"http://localhost/signin"
+                        "http://localhost:3000/signin"
                     },
                     PostLogoutRedirectUris =
                     {
-                        "http://localhost/signout"
+                        //"http://localhost/signout"
+                        "http://localhost:3000/signout"
                     },
                     AllowedCorsOrigins =
                     {
                         "http://localhost:5101",
                         "http://localhost:5103",
-                        "http://localhost:5000"
+                        "http://localhost:5000",
+                        "http://localhost:3000",
+                        "https://localhost:7278",
+                        "https://localhost:7003",
                     },
                     AllowAccessTokensViaBrowser = true,
                     AccessTokenLifetime = 3600

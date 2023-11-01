@@ -26,7 +26,8 @@ builder.Services.AddAuthentication(config =>
 })
     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, config =>
     {
-        config.Authority = "http://notesidentity";
+        //config.Authority = "http://notesidentity";
+        config.Authority = "http://localhost:5121";
         config.Audience = "NotesAppApiResources";
         config.RequireHttpsMetadata = false;
     });
@@ -37,7 +38,7 @@ builder.Services.AddMassTransit(massTransitConfig =>
     massTransitConfig.AddConsumers(assembly);
     massTransitConfig.UsingRabbitMq((context, rabbitConfig) =>
     {
-        rabbitConfig.Host("notesrabbit", "/", config =>
+        rabbitConfig.Host(/*"notesrabbit*/ "localhost", "/", config =>
         {
             config.Username("guest");
             config.Password("guest");

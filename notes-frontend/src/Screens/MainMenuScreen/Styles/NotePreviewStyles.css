@@ -1,7 +1,7 @@
 .note-preview {
     background-color: #e4cd86;
-    width: 190px;
-    height: 195px;
+    width: 195px;
+    height: 210px;
     display: flex;
     flex-direction: column;
     row-gap: 8px;
@@ -9,8 +9,6 @@
 }
 
 .note-preview-title {
-    margin-left: 5px;
-    margin-right: 2%;
     font-weight: 700;
     font-size: 18px;
     text-overflow: ellipsis;
@@ -24,4 +22,5 @@
     height: 100%;
     text-overflow: ellipsis;
     overflow: hidden;
+    word-break: break-all;
 }

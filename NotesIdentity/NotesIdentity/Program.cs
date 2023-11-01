@@ -1,12 +1,10 @@
 using MassTransit;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Logging;
 using NotesIdentity;
 using NotesIdentity.Data;
 using NotesIdentity.Entities;
-using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,11 +21,11 @@ builder.Services.AddCors(config =>
 
 builder.Services.AddMassTransit(massTransitConfig =>
 {
-    var assembly = typeof(Program).Assembly;
+    var assembly = typeof(Program).Assembly;    
     massTransitConfig.AddConsumers(assembly);
     massTransitConfig.UsingRabbitMq((context, rabbitConfig) =>
     {
-        rabbitConfig.Host("notesrabbit", "/", config =>
+        rabbitConfig.Host(/*"notesrabbit*/ "localhost", "/", config =>
         {
             config.Username("guest");
             config.Password("guest");
@@ -66,7 +64,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.Cookie.SameSite = SameSiteMode.None;
 });
 
-builder.Services.AddIdentityServer(x => x.IssuerUri = "http://notesidentity")    // THE MOST IMPORTANT PART
+builder.Services.AddIdentityServer(/*x => x.IssuerUri = "http://notesidentity"*/)    // THE MOST IMPORTANT PART
     .AddAspNetIdentity<AppUser>()
     .AddInMemoryClients(IdentityServerConfiguration.AddClients())
     .AddInMemoryApiScopes(IdentityServerConfiguration.AddScopes())
@@ -76,14 +74,14 @@ builder.Services.AddIdentityServer(x => x.IssuerUri = "http://notesidentity")   
 
 var app = builder.Build();
 
-var fordwardedHeaderOptions = new ForwardedHeadersOptions
-{
-    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-};
-fordwardedHeaderOptions.KnownNetworks.Clear();
-fordwardedHeaderOptions.KnownProxies.Clear();
+//var fordwardedHeaderOptions = new ForwardedHeadersOptions
+//{
+//    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+//};
+//fordwardedHeaderOptions.KnownNetworks.Clear();
+//fordwardedHeaderOptions.KnownProxies.Clear();
 
-app.UseForwardedHeaders(fordwardedHeaderOptions);
+//app.UseForwardedHeaders(fordwardedHeaderOptions);
 
 app.UseStaticFiles();
 

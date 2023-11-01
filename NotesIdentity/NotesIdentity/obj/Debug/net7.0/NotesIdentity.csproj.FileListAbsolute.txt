@@ -417,3 +417,5 @@ C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\Microsoft.
 C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\NotesContracts.dll
 C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\RabbitMQ.Client.dll
 C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\NotesIdentity.staticwebassets.runtime.json
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\nuget.config
+C:\Projects\NotesProject\NotesIdentity\NotesIdentity\bin\Debug\net7.0\wwwroot\Views\Styles\AuthStyles.css

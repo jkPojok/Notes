@@ -30,7 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Views\Styles\AuthStyles.css" />
+    <None Include="wwwroot\Views\Styles\AuthStyles.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

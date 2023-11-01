@@ -45,7 +45,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.11",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.4",
-          "NotesContracts": "1.0.1",
+          "NotesContracts": "1.0.2",
           "Microsoft.AspNetCore.Antiforgery": "7.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "7.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "7.0.0.0",
@@ -1206,11 +1206,11 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "NotesContracts/1.0.1": {
+      "NotesContracts/1.0.2": {
         "runtime": {
           "lib/net7.0/NotesContracts.dll": {
-            "assemblyVersion": "1.0.1.0",
-            "fileVersion": "1.0.1.0"
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
           }
         },
         "compile": {
@@ -3626,12 +3626,12 @@
       "path": "newtonsoft.json/12.0.2",
       "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
     },
-    "NotesContracts/1.0.1": {
+    "NotesContracts/1.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-a7crn4J1wEI0T/kITum5vxTKfe46V2X/Lq3WGnzV6hAhvGIoigTYddYPadwMjWXM+E6z+HryTvOGxGEJ2x+LHQ==",
-      "path": "notescontracts/1.0.1",
-      "hashPath": "notescontracts.1.0.1.nupkg.sha512"
+      "sha512": "sha512-o8hPhczantni61OFSMTlhsYMxmY1zlOV9yLYFjFdPkOxXLotzxCBr/Owc60fjg+z8kvHv+k7QBLjOp7sq/GhJQ==",
+      "path": "notescontracts/1.0.2",
+      "hashPath": "notescontracts.1.0.2.nupkg.sha512"
     },
     "RabbitMQ.Client/6.5.0": {
       "type": "package",
