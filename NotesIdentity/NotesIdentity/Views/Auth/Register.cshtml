@@ -6,24 +6,27 @@
     <div class="auth-container">
         <h2>Авторизация</h2>
         <form asp-controller="Auth" asp-action="Register" method="post">
-            <input type="hidden" asp-for="ReturnUrl" />
-            <div>
+            <div class="auth-input-container">
                 <input asp-for="Username" class="auth-input" placeholder="Никнейм" />
+                <span class="auth-error-text" asp-validation-for="Username"></span>
             </div>
-            <div>
+            <div class="auth-input-container">
                 <input asp-for="Email" class="auth-input" placeholder="Электронная почта" />
+                <span class="auth-error-text" asp-validation-for="Email"></span>
             </div>
-            <div>
+            <div class="auth-input-container">
                 <input asp-for="Password" class="auth-input" placeholder="Введите пароль" />
+                <span class="auth-error-text" asp-validation-for="Password"></span>
             </div>
-            <div>
+            <div class="auth-input-container">
                 <input asp-for="PasswordConfirmation" class="auth-input" placeholder="Подтвердите пароль" />
+                <span class="auth-error-text" asp-validation-for="PasswordConfirmation"></span>
             </div>
             <div>
                 <input class="auth-submit-input" type="submit" value="Зарегестрироваться" />
             </div>
 
-            <a class="auth-redirect-a" asp-controller="Auth" asp-action="Login" asp-route-returnUrl="@Model.ReturnUrl">Войти</a>
+            <a class="auth-redirect-a" asp-controller="Auth" asp-action="Login">Войти</a>
         </form>
     </div>
 </body>

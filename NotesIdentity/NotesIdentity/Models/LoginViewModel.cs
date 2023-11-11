@@ -4,9 +4,9 @@ namespace NotesIdentity.Models
 {
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Не указано имя")]
         public string? Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
         public string? ReturnUrl { get; set; }

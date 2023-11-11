@@ -4,18 +4,17 @@ namespace NotesIdentity.Models
 {
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Не указано имя")]
         public string? Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Не указана электронная почта")]
         [DataType(DataType.EmailAddress)]
         public string? Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]
-        [Compare("Password")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string? PasswordConfirmation { get; set; }
-        public string? ReturnUrl { get; set; }
     }
 }

@@ -14,10 +14,23 @@
     border-radius: 10px;
 }
 
+.auth-input-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
 .auth-input {
     border-radius: 5px;
     height: 35px;
     width: 250px;
+}
+
+.auth-error-text {
+    align-self: flex-start;
+    color: #EB2C2C;
+    margin-left: 5px;
+    font-size: 13px;
 }
 
 .auth-submit-input {

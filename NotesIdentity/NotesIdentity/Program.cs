@@ -72,6 +72,8 @@ builder.Services.AddIdentityServer(/*x => x.IssuerUri = "http://notesidentity"*/
     .AddInMemoryIdentityResources(IdentityServerConfiguration.AddIdentityResources())
     .AddDeveloperSigningCredential();
 
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 //var fordwardedHeaderOptions = new ForwardedHeadersOptions
@@ -88,5 +90,6 @@ app.UseStaticFiles();
 app.UseCors("AllowServices");
 app.MapControllers();
 app.UseIdentityServer();
+app.UseSession();
 
 app.Run();

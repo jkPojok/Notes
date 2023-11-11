@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Projects\NotesProject\NotesIdentity\NotesIdentity
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Projects/NotesProject/NotesIdentity/NotesIdentity/Views/Auth/EmailConfirmationPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxFbWFpbENvbmZpcm1hdGlvblBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Projects/NotesProject/NotesIdentity/NotesIdentity/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
