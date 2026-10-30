@@ -12,7 +12,9 @@
 Инфраструктура: Docker, Nginx
 
 Сами сервисы построены на архитектуре "Onion"
-<img width="900" height="900" alt="image" src="https://github.com/user-attachments/assets/87e22cd7-dacb-4162-a0e7-e6300f9904a4" />
+
+<img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/87e22cd7-dacb-4162-a0e7-e6300f9904a4" />
+
 Domain (Ядро): Содержит сущности (Entities), value objects и интерфейсы репозиториев. Не зависит ни от каких других слоев или внешних библиотек.
 Application: Содержит бизнес-логику (Use Cases), команды и запросы (CQRS), а также интерфейсы для внешних сервисов. Зависит только от Domain.
 Infrastructure: Реализация доступа к данным (EF Core), работа с RabbitMQ, внешними API. Зависит от Application и Domain (реализует их интерфейсы).
